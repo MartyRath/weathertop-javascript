@@ -1,0 +1,17 @@
+{
+  "file": "./models/stations.json",
+  "stations": [
+    {
+      "name": "wow",
+      "_id": "cc760933-d309-4c31-b005-e04ee005c30e"
+    },
+    {
+      "name": "wiw",
+      "_id": "9aa08aab-dd5b-4d19-a742-53a398d2a045"
+    },
+    {
+      "name": "done",
+      "_id": "7a72f60d-d019-41a7-8d35-3b0e9f526842"
+    }
+  ]
+}
