@@ -1,0 +1,25 @@
+{
+  "file": "./models/readings.json",
+  "readings": [
+    {
+      "duration": null,
+      "_id": "6efeb914-2226-4fde-995c-db1017c54e2c",
+      "stationid": "cc760933-d309-4c31-b005-e04ee005c30e"
+    },
+    {
+      "duration": null,
+      "_id": "ad55e4d4-8b2b-4c96-b36c-da05df07e38f",
+      "stationid": "cc760933-d309-4c31-b005-e04ee005c30e"
+    },
+    {
+      "duration": null,
+      "_id": "b23c554e-a878-4920-a413-270aec63d8ad",
+      "stationid": "cc760933-d309-4c31-b005-e04ee005c30e"
+    },
+    {
+      "duration": null,
+      "_id": "9b63b5ef-597b-46c2-bde5-0f66669533c8",
+      "stationid": "cc760933-d309-4c31-b005-e04ee005c30e"
+    }
+  ]
+}
