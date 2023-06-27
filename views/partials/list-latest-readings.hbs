@@ -33,9 +33,10 @@
                     <div class="title is-size-5 has-text-white">
                         Temp
                     </div>
-                    {{latestReading.temperature}} C
-                   
-                   F <br>
+                    {{latestReading.temperature}} C <br>
+                    <div>{{conversions.convertTemperatureCToF latestReading.temperature}} F 
+                    </div>
+                    <br>
                     Max:  <br>
                     Min: <br>
                 </div>
