@@ -1,0 +1,84 @@
+<div class="content box">
+    <div class="columns has-text-left">
+        <div class="column is-one-fifth">
+            <div class="card has-background-dark">
+                <div class="card-content has-text-white">
+                    <div class="title is-size-4 has-text-white mr-2">
+                        {{station.name}}
+                        <span class="icon is-pulled-right">
+                            <i class="fa-sharp fa-solid fa-location-dot fa-2x" style="color: #E3F500;"></i>
+                        </span><br> <br>
+                        <div class="text is-size-6 as-text-white">
+                            {{station.latitude}} <br>
+                            {{station.longitude}} <br> <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column is-one-fifth">
+            <div class="card has-background-dark">
+                <div class="card-content has-text-white">
+                    <div class="title is-size-5 has-text-white">
+                        Weather
+                    </div>
+                    <br>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="column is-one-fifth">
+            <div class="card has-background-dark">
+                <div class="card-content has-text-white">
+                    <div class="title is-size-5 has-text-white">
+                        Temp
+                        
+                    </div>
+                    
+                   
+                   F <br>
+                    Max:  <br>
+                    Min: <br>
+                </div>
+            </div>
+        </div>
+        <div class="column is-one-fifth">
+            <div class="card has-background-dark">
+                <div class="card-content has-text-white">
+                    <div class="title is-size-5 has-text-white">
+                        Wind
+                        <span class="icon is-pulled-right">
+                            <i class="fa-solid fa-wind fa-3x"></i>
+                        </span>
+                    </div>
+                     bft <br>
+                    
+                     <br>
+                    Feels like<br>
+                     <br>
+                    Max:  <br>
+                    Min: {{station.windSpeed}} <br>
+                </div>
+            </div>
+        </div>
+        <div class="column is-one-fifth">
+            <div class="card has-background-dark">
+                <div class="card-content has-text-white">
+                    <div class="title is-size-5 has-text-white">
+                        Pressure
+                        <span class="icon is-pulled-right">
+                            <i class="fa-brands fa-centos fa-3x" style="color: #ff8000;"></i>
+                        </span>
+                    </div>
+                    <br>
+                    hpa <br>
+                    Max:<br>
+                    
+                    <br>
+                    Min: <br>
+                    {{station.pressure}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

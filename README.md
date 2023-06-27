@@ -1,6 +1,6 @@
-# Web Development Template
+# WeatherTop
 
-A starter project for learning web development
+A weather monitoring web application.
 
 This is an Express.js project, designed to work well with the Glitch development environment. It includes basic express setup, handlebars templating, routing, + lowdb database.
 
