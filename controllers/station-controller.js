@@ -1,6 +1,7 @@
 import { stationStore } from "../models/station-store.js";
 import { readingStore } from "../models/reading-store.js";
 import { stationAnalytics } from "../utils/station-analytics.js";
+import { stationConversions } from "../utils/station-conversions.js";
 
 export const stationController = {
   async index(request, response) {
@@ -8,10 +9,12 @@ export const stationController = {
     stationStore.getStationById(request.params.id);
     const latestReading = 
     stationAnalytics.getLatestReading(station);
+
     const viewData = {
       name: "Station",
       station: station,
       latestReading: latestReading,
+      conversions: stationConversions,
     };
     response.render("station-view", viewData);
   },
