@@ -20,11 +20,11 @@
       "stationid": "cc760933-d309-4c31-b005-e04ee005c30e"
     },
     {
-      "code": 12,
-      "temperature": 2,
-      "windSpeed": 34,
-      "windDirection": 45,
-      "pressure": 4,
+      "code": 44,
+      "temperature": 24,
+      "windSpeed": 344,
+      "windDirection": 454,
+      "pressure": 44,
       "_id": "c59933a8-d0f2-47f4-b5a6-7e1b058404ea",
       "stationid": "fb18af20-3a17-450e-b187-fdabceed65e0"
     }
