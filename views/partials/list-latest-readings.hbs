@@ -1,5 +1,3 @@
-
-
 <div class="content box">
     <div class="columns has-text-left">
         <div class="column is-one-fifth">
@@ -34,9 +32,8 @@
                 <div class="card-content has-text-white">
                     <div class="title is-size-5 has-text-white">
                         Temp
-                        
                     </div>
-                    
+                    {{latestReading.temperature}} C
                    
                    F <br>
                     Max:  <br>
@@ -73,12 +70,12 @@
                         </span>
                     </div>
                     <br>
-                    hpa <br>
+                    {{latestReading.pressure}} hpa <br>
                     Max:<br>
                     
                     <br>
                     Min: <br>
-                    {{station.pressure}}
+                    
                 </div>
             </div>
         </div>
