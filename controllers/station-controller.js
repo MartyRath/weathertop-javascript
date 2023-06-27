@@ -1,13 +1,17 @@
 import { stationStore } from "../models/station-store.js";
 import { readingStore } from "../models/reading-store.js";
+import { stationAnalytics } from "../utils/station-analytics.js";
 
 export const stationController = {
   async index(request, response) {
     const station = await 
     stationStore.getStationById(request.params.id);
+    const latestReading = 
+    stationAnalytics.getLatestReading(station);
     const viewData = {
       name: "Station",
       station: station,
+      latestReading: latestReading,
     };
     response.render("station-view", viewData);
   },
