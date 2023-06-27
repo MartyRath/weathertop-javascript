@@ -9,6 +9,15 @@
       "pressure": 21,
       "_id": "07ed8dde-74ee-4e2a-9e0d-e91f86357b62",
       "stationid": "cc760933-d309-4c31-b005-e04ee005c30e"
+    },
+    {
+      "code": 1,
+      "temperature": 1,
+      "windSpeed": 1,
+      "windDirection": 1,
+      "pressure": 1,
+      "_id": "decda232-f6b8-4848-bc8e-5e253bd06a63",
+      "stationid": "cc760933-d309-4c31-b005-e04ee005c30e"
     }
   ]
 }

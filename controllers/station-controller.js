@@ -18,10 +18,20 @@ export const stationController = {
       code: Number(request.body.code),
       temperature: Number(request.body.temperature),
       windSpeed: Number(request.body.windSpeed),
+      windDirection: Number(request.body.windDirection),
       pressure: Number(request.body.pressure),
     };
     console.log(`adding reading ${newReading.code}`);
     await readingStore.addReading(station._id, newReading);
     response.redirect("/station/" + station._id);
   },
+
+  async deleteReading(request, response) {
+    const stationId = request.params.stationid;
+    const readingId = request.params.readingid;
+    console.log(`Deleting Reading ${readingId} from station ${stationId}`);
+    await readingStore.deleteReading(request.params.readingId);
+    response.redirect("/station/" + stationId);
+  },
+
 };
