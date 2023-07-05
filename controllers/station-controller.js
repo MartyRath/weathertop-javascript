@@ -13,6 +13,8 @@ export const stationController = {
     const viewData = {
       name: "Station",
       station: station,
+      latitude: station.latitude,
+      longitude: station.longitude,
       latestReading: latestReading,
       conversions: stationConversions,
     };
