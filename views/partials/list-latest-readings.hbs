@@ -23,7 +23,7 @@
                         Weather
                     </div>
                     <br>
-                    
+                    {{conversions.weatherCodeToString latestReading.code}}
                 </div>
             </div>
         </div>
@@ -51,13 +51,14 @@
                             <i class="fa-solid fa-wind fa-3x"></i>
                         </span>
                     </div>
-                     bft <br>
-                    
-                     <br>
+                    {{conversions.convertWindSpeedKMToBeaufort latestReading.windSpeed}} bft <br>
+                     
+                    {{conversions.convertDegreesToCompassDirection latestReading.windDirection}} <br>
                     Feels like<br>
+                    {{conversions.convertToWindChill latestReading.temperature latestReading.windSpeed}}
                      <br>
                     Max:  <br>
-                    Min: {{latestReading.windSpeed}} <br>
+                    Min:  <br>
                 </div>
             </div>
         </div>
@@ -70,7 +71,6 @@
                             <i class="fa-brands fa-centos fa-3x" style="color: #ff8000;"></i>
                         </span>
                     </div>
-                    <br>
                     {{latestReading.pressure}} hpa <br>
                     Max:<br>
                     
