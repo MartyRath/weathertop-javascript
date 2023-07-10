@@ -37,8 +37,8 @@
                     <div>{{conversions.convertTemperatureCToF latestReading.temperature}} F 
                     </div>
                     <br>
-                    Max:  <br>
-                    Min: <br>
+                    Max: {{analytics.getMaxValue station.readings 'temperature'}} <br>
+                    Min: {{analytics.getMinValue station.readings 'temperature'}}<br>
                 </div>
             </div>
         </div>
@@ -57,8 +57,8 @@
                     Feels like<br>
                     {{conversions.convertToWindChill latestReading.temperature latestReading.windSpeed}}
                      <br>
-                    Max:  <br>
-                    Min:  <br>
+                    Max: {{analytics.getMaxValue station.readings 'windSpeed'}} <br>
+                    Min: {{analytics.getMinValue station.readings 'windSpeed'}}<br>
                 </div>
             </div>
         </div>
@@ -72,10 +72,8 @@
                         </span>
                     </div>
                     {{latestReading.pressure}} hpa <br>
-                    Max:<br>
-                    
-                    <br>
-                    Min: <br>
+                    Max: {{analytics.getMaxValue station.readings 'pressure'}} <br>
+                    Min: {{analytics.getMinValue station.readings 'pressure'}}<br>
                     
                 </div>
             </div>

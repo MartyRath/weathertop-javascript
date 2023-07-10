@@ -45,6 +45,15 @@
       "pressure": 21,
       "_id": "e01966a9-6b21-48d4-9c33-8d82ca2e29da",
       "stationid": "9190945b-c05e-4a65-a49e-e1241cea9b89"
+    },
+    {
+      "code": 23,
+      "temperature": 23,
+      "windSpeed": 32,
+      "windDirection": 32,
+      "pressure": 32,
+      "_id": "c013fbc0-538c-45e4-bf43-d11746292688",
+      "stationid": "9190945b-c05e-4a65-a49e-e1241cea9b89"
     }
   ]
 }
