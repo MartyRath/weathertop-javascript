@@ -5,14 +5,14 @@
                 <div class="card-content has-text-white">
                     <div class="title is-size-4 has-text-white mr-2">
                         {{station.name}}
-                        <span class="icon is-pulled-right">
-                            <i class="fa-sharp fa-solid fa-location-dot fa-2x" style="color: #E3F500;"></i>
+                        <span class="iconify is-pulled-right" data-icon="mdi:location" 
+                        width="75" height="75"></span>
                         </span><br> <br>
+                    </div>
                         <div class="text is-size-6 as-text-white">
                             Lat: {{station.latitude}} <br>
                             Lng: {{station.longitude}} <br> <br>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -21,6 +21,8 @@
                 <div class="card-content has-text-white">
                     <div class="title is-size-5 has-text-white">
                         Weather
+                        <span class="iconify is-pulled-right" data-icon="{{conversions.weatherCodeToIcon latestReading.code}}" 
+                    width="75" height="75"></span>
                     </div>
                     <br>
                     {{conversions.weatherCodeToString latestReading.code}}
@@ -32,6 +34,9 @@
                 <div class="card-content has-text-white">
                     <div class="title is-size-5 has-text-white">
                         Temp
+                        <span class="iconify is-pulled-right" 
+                        data-icon="{{conversions.temperatureIcons latestReading.temperature}}" 
+                        width="75" height="75"></span>
                     </div>
                     {{latestReading.temperature}} C <br>
                     <div>{{conversions.convertTemperatureCToF latestReading.temperature}} F 
@@ -67,9 +72,8 @@
                 <div class="card-content has-text-white">
                     <div class="title is-size-5 has-text-white">
                         Pressure
-                        <span class="icon is-pulled-right">
-                            <i class="fa-brands fa-centos fa-3x" style="color: #ff8000;"></i>
-                        </span>
+                        <span class="iconify is-pulled-right" data-icon="arcticons:fmiweather" 
+                        width="75" height="75"></span>
                     </div>
                     {{latestReading.pressure}} hpa <br>
                     Max: {{analytics.getMaxValue station.readings 'pressure'}} <br>

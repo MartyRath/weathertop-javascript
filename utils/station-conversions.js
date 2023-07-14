@@ -79,5 +79,29 @@ export const stationConversions = {
         return null;
       },
 
+      weatherCodeToIcon(weatherCode) {
+        const iconMap = {
+          100: 'arcticons:weather',
+          200: 'ri:soundcloud-fill', 
+          300: 'zondicons:cloud',
+          400: 'wi:showers',
+          500: 'fa6-solid:cloud-showers-heavy',
+          600: 'carbon:rain',
+          700: 'bi:snow',
+          800: 'mdi:thunder',
+        };
+    
+        const icon = iconMap[weatherCode];
+        return icon;
+      },
 
+      temperatureIcons(temperature) {
+        if (temperature <= 5)
+          return "fa-solid:temperature-low"
+        else if (temperature <= 15)
+        return "fluent:temperature-16-filled"
+        else if (temperature > 15)
+          return "fa-solid:temperature-high"
+        else null;
+      },
 };
