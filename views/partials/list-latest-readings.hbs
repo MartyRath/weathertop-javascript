@@ -52,12 +52,11 @@
                 <div class="card-content has-text-white">
                     <div class="title is-size-5 has-text-white">
                         Wind
-                        <span class="icon is-pulled-right">
-                            <i class="fa-solid fa-wind fa-3x"></i>
-                        </span>
+                        <span class="iconify is-pulled-right" 
+                        data-icon="ph:wind-bold" 
+                        width="75" height="75"></span>
                     </div>
                     {{conversions.convertWindSpeedKMToBeaufort latestReading.windSpeed}} bft <br>
-                     
                     {{conversions.convertDegreesToCompassDirection latestReading.windDirection}} <br>
                     Feels like<br>
                     {{conversions.convertToWindChill latestReading.temperature latestReading.windSpeed}}
