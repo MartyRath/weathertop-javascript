@@ -39,9 +39,11 @@
                         width="75" height="75"></span>
                     </div>
                     {{latestReading.temperature}} C <br>
-                    <div>{{conversions.convertTemperatureCToF latestReading.temperature}} F 
-                    </div>
+                    {{conversions.convertTemperatureCToF latestReading.temperature}} F 
                     <br>
+                    <span class="iconify is-pulled-right mr-5" 
+                        data-icon="{{analytics.getTrends station.readings 'temperature'}}" 
+                        width="50" height="50"></span>
                     Max: {{analytics.getMaxValue station.readings 'temperature'}} <br>
                     Min: {{analytics.getMinValue station.readings 'temperature'}}<br>
                 </div>
@@ -54,10 +56,13 @@
                         Wind
                         <span class="iconify is-pulled-right" 
                         data-icon="ph:wind-bold" 
-                        width="75" height="75"></span>
+                        width="75" height="75"></span> <br>
                     </div>
                     {{conversions.convertWindSpeedKMToBeaufort latestReading.windSpeed}} bft <br>
                     {{conversions.convertDegreesToCompassDirection latestReading.windDirection}} <br>
+                    <span class="iconify is-pulled-right mr-3" 
+                        data-icon="{{analytics.getTrends station.readings 'windSpeed'}}" 
+                        width="50" height="50"></span>
                     Feels like<br>
                     {{conversions.convertToWindChill latestReading.temperature latestReading.windSpeed}}
                      <br>
@@ -75,7 +80,11 @@
                         width="75" height="75"></span>
                     </div>
                     {{latestReading.pressure}} hpa <br>
+                    
                     Max: {{analytics.getMaxValue station.readings 'pressure'}} <br>
+                    <span class="iconify is-pulled-right mr-3" 
+                        data-icon="{{analytics.getTrends station.readings 'pressure'}}" 
+                        width="50" height="50"></span>
                     Min: {{analytics.getMinValue station.readings 'pressure'}}<br>
                     
                 </div>
