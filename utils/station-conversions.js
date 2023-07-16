@@ -104,4 +104,14 @@ export const stationConversions = {
           return "fa-solid:temperature-high"
         else null;
       },
+
+      windIcons(windSpeed) {
+        if (temperature <= 5)
+          return "fa-solid:temperature-low"
+        else if (temperature <= 15)
+        return "fluent:temperature-16-filled"
+        else if (temperature > 15)
+          return "fa-solid:temperature-high"
+        else null;
+      },
 };
