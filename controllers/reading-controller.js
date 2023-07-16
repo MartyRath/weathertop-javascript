@@ -18,6 +18,7 @@ export const readingController = {
     const stationId = request.params.stationid;
     const readingId = request.params.readingid;
     const updatedReading = {
+        date: Number(request.body.date),
         code: Number(request.body.code),
         temperature: Number(request.body.temperature),
         windSpeed: Number(request.body.windSpeed),
