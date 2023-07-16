@@ -38,6 +38,7 @@ export const accountsController = {
     const user = await userStore.getUserByEmail(request.body.email);
     if (user) {
       response.cookie("station", user.email);
+      response.cookie("userId", user._id);
       console.log(`logging in ${user.email}`);
       response.redirect("/dashboard");
     } else {
@@ -49,4 +50,25 @@ export const accountsController = {
     const userEmail = request.cookies.station;
     return await userStore.getUserByEmail(userEmail);
   },
+
+  async getLoggedInUserId(request) {
+    const userId = request.cookies.userId;
+    return await userStore.getUserById(userId);
+  },
+
+  async updateProfile(request, response) {
+    const user = await userStore.getUserById(request.params.id);
+    const updatedUser = {
+      firstName: request.body.firstName,
+      lastName: request.body.lastName,
+      email: request.body.email,
+      password: request.body.password,
+    };
+    
+    console.log("Updating user details");
+    await userStore.updateUser(user, updatedUser);
+    response.redirect("/profile/" + user._id);
+    },
+
+ 
 };

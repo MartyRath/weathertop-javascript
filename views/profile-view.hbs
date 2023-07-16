@@ -1,0 +1,43 @@
+{{> menu active="profile"}}
+
+<section class="content box">
+    <div class="columns">
+        <div class="column is-half">
+            <h3 class="subtitle">Your profile</h3>
+            <label class="label">Name: </label>
+            {{user.firstName}} {{user.lastName}}'s Profile <br> <br>
+            <label class="label">Email: </label> {{user.email}}<br><br>
+            <form action="/updateProfile/{{user._id}}" method="POST">
+                <h3 class="subtitle">Update your details</h3>
+                <div class="field is-horizontal field-body">
+                    <div class="field">
+                        <label class="label">First Name</label>
+                        <p class="control is-expanded">
+                            <input class="input" type="text" placeholder="First Name" name="firstName">
+                        </p>
+                    </div>
+                    <div class="field">
+                        <label class="label">Last Name</label>
+                        <p class="control">
+                            <input class="input" type="text" placeholder="Last Name" name="lastName">
+                        </p>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Email</label>
+                    <input class="input" placeholder="Email" name="email">
+                </div>
+                <div class="field">
+                    <label class="label">Password</label>
+                    <input class="input" type="password" name="password">
+                </div>
+                <button class="button is-link is-info">Submit</button>
+            </form>
+        </div>
+        <div class="column is-half">
+            <figure class="image is-square">
+                <img src="/public/images/profile-windy.png" alt="Person in red rain coat with umbrella in windy weather">
+            </figure>
+        </div>
+    </div>
+</section>
