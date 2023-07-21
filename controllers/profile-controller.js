@@ -5,6 +5,7 @@ export const profileController = {
     async index(request, response) {
     const loggedInUser = await accountsController.getLoggedInUserId(request);
       const viewData = {
+        title: "Profile",
         user: loggedInUser,
       };
       console.log("profile rendering");

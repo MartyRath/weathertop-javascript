@@ -6,16 +6,25 @@
       "_id": "d1ba5a6a-783d-4256-86dc-a4e371d24167"
     },
     {
-      "name": "notWow",
-      "userid": "05cb8d8c-d592-4c72-96a0-47c28fcffbad",
-      "_id": "2113a953-c9d5-4c59-aefc-959444f975d6"
-    },
-    {
       "name": "NEQW",
       "latitude": "12",
       "longitude": "21",
       "userid": "53146683-1c31-4788-95fc-38cbad9afebc",
       "_id": "9190945b-c05e-4a65-a49e-e1241cea9b89"
+    },
+    {
+      "name": "Newbodega",
+      "latitude": "60",
+      "longitude": "12",
+      "userid": "05cb8d8c-d592-4c72-96a0-47c28fcffbad",
+      "_id": "cda0de68-48ad-462e-a1ec-e972d96433ba"
+    },
+    {
+      "name": "new",
+      "latitude": "12",
+      "longitude": "21",
+      "userid": "05cb8d8c-d592-4c72-96a0-47c28fcffbad",
+      "_id": "86dca8d9-088b-4360-a8f8-0f03ad1adf9d"
     }
   ]
 }

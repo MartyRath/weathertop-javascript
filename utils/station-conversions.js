@@ -1,7 +1,8 @@
 import { stationAnalytics } from "../utils/station-analytics.js";
+import Handlebars from 'handlebars';
 
 export const stationConversions = {
-    convertTemperatureCToF(temperature) {
+      convertTemperatureCToF(temperature) {
         let fahrenheit = temperature * 9 / 5 + 32;
         return fahrenheit;
       },
@@ -106,12 +107,15 @@ export const stationConversions = {
       },
 
       windIcons(windSpeed) {
-        if (temperature <= 5)
+        if (windSpeed <= 5)
           return "fa-solid:temperature-low"
-        else if (temperature <= 15)
+        else if (windSpeed <= 15)
         return "fluent:temperature-16-filled"
-        else if (temperature > 15)
+        else if (windSpeed > 15)
           return "fa-solid:temperature-high"
         else null;
       },
+
 };
+
+Handlebars.registerHelper(stationConversions);

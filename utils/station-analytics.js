@@ -1,4 +1,5 @@
 import { readingStore } from "../models/reading-store.js";
+import Handlebars from 'handlebars';
 
 export const stationAnalytics = {
     getLatestReading(station) {
@@ -7,6 +8,11 @@ export const stationAnalytics = {
             latestReading = station.readings[station.readings.length - 1];
         }
         return latestReading;
+    },
+
+    specialOne(temperature) {
+        let specialOne = temperature + 1;
+        return specialOne;
     },
 
     getMaxValue(readings, property) {
@@ -51,3 +57,5 @@ export const stationAnalytics = {
     },
 
 };
+
+Handlebars.registerHelper(stationAnalytics);

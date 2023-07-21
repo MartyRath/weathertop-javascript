@@ -9,11 +9,10 @@ export const stationController = {
     stationStore.getStationById(request.params.id);
     const latestReading = 
     stationAnalytics.getLatestReading(station);
-    
-
     const viewData = {
       name: "Station",
       station: station,
+      stationName: station.name,
       latitude: station.latitude,
       longitude: station.longitude,
       latestReading: latestReading,
@@ -21,6 +20,7 @@ export const stationController = {
       analytics: stationAnalytics,
     };
     response.render("station-view", viewData);
+    console.log("station rendering")
   },
 
   async addReading(request, response) {
