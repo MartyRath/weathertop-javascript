@@ -10,11 +10,6 @@ export const stationAnalytics = {
         return latestReading;
     },
 
-    specialOne(temperature) {
-        let specialOne = temperature + 1;
-        return specialOne;
-    },
-
     getMaxValue(readings, property) {
         let maxValue = Number.MIN_SAFE_INTEGER;
         for (let reading of readings) {

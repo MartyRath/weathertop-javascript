@@ -7,17 +7,16 @@ export const stationController = {
   async index(request, response) {
     const station = await 
     stationStore.getStationById(request.params.id);
-    const latestReading = 
-    stationAnalytics.getLatestReading(station);
+    const latestReading = stationAnalytics.getLatestReading(station);
+      station.latestReading = latestReading;
+    
     const viewData = {
-      name: "Station",
       station: station,
-      stationName: station.name,
+      name: station.name,
       latitude: station.latitude,
       longitude: station.longitude,
+      readings: station.readings,
       latestReading: latestReading,
-      conversions: stationConversions,
-      analytics: stationAnalytics,
     };
     response.render("station-view", viewData);
     console.log("station rendering")
@@ -48,5 +47,4 @@ export const stationController = {
     await readingStore.deleteReading(request.params.readingId);
     response.redirect("/station/" + stationId);
   },
-
 };

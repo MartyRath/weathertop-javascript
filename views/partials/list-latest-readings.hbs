@@ -4,7 +4,7 @@
             <div class="card has-background-dark">
                 <div class="card-content has-text-white">
                     <div class="title is-size-4 has-text-white mr-2">
-                        {{stationName}}
+                        {{name}}
                         <span class="iconify is-pulled-right" data-icon="mdi:location" width="75" height="75"></span>
                         </span><br> <br>
                     </div>
@@ -21,11 +21,11 @@
                     <div class="title is-size-5 has-text-white">
                         Weather
                         <span class="iconify is-pulled-right"
-                            data-icon="{{conversions.weatherCodeToIcon latestReading.code}}" width="75"
+                            data-icon="{{weatherCodeToIcon latestReading.code}}" width="75"
                             height="75"></span>
                     </div>
                     <br>
-                    {{conversions.weatherCodeToString latestReading.code}}
+                    {{weatherCodeToString latestReading.code}}
                 </div>
             </div>
         </div>
@@ -35,17 +35,17 @@
                     <div class="title is-size-5 has-text-white">
                         Temp
                         <span class="iconify is-pulled-right"
-                            data-icon="{{conversions.temperatureIcons latestReading.temperature}}" width="75"
+                            data-icon="{{temperatureIcons latestReading.temperature}}" width="75"
                             height="75"></span>
                     </div>
                     {{latestReading.temperature}} C <br>
-                    {{conversions.convertTemperatureCToF latestReading.temperature}} F
+                    {{convertTemperatureCToF latestReading.temperature}} F
                     <br>
                     <span class="iconify is-pulled-right mr-5"
-                        data-icon="{{analytics.getTrends station.readings 'temperature'}}" width="50"
+                        data-icon="{{getTrends readings 'temperature'}}" width="50"
                         height="50"></span>
-                    Max: {{analytics.getMaxValue station.readings 'temperature'}} <br>
-                    Min: {{analytics.getMinValue station.readings 'temperature'}}<br>
+                    Max: {{getMaxValue readings 'temperature'}} <br>
+                    Min: {{getMinValue readings 'temperature'}}<br>
                 </div>
             </div>
         </div>
@@ -57,15 +57,15 @@
                         <span class="iconify is-pulled-right" data-icon="ph:wind-bold" width="75" height="75"></span>
                         <br>
                     </div>
-                    {{conversions.convertWindSpeedKMToBeaufort latestReading.windSpeed}} bft <br>
-                    {{conversions.convertDegreesToCompassDirection latestReading.windDirection}} <br>
+                    {{convertWindSpeedKMToBeaufort latestReading.windSpeed}} bft <br>
+                    {{convertDegreesToCompassDirection latestReading.windDirection}} <br>
                     <span class="iconify is-pulled-right mr-3"
-                        data-icon="{{analytics.getTrends station.readings 'windSpeed'}}" width="50" height="50"></span>
+                        data-icon="{{getTrends readings 'windSpeed'}}" width="50" height="50"></span>
                     Feels like<br>
-                    {{conversions.convertToWindChill latestReading.temperature latestReading.windSpeed}}
+                    {{convertToWindChill latestReading.temperature latestReading.windSpeed}}
                     <br>
-                    Max: {{analytics.getMaxValue station.readings 'windSpeed'}} <br>
-                    Min: {{analytics.getMinValue station.readings 'windSpeed'}}<br>
+                    Max: {{getMaxValue readings 'windSpeed'}} <br>
+                    Min: {{getMinValue readings 'windSpeed'}}<br>
                 </div>
             </div>
         </div>
@@ -79,10 +79,10 @@
                     </div>
                     {{latestReading.pressure}} hpa <br>
 
-                    Max: {{analytics.getMaxValue station.readings 'pressure'}} <br>
+                    Max: {{getMaxValue readings 'pressure'}} <br>
                     <span class="iconify is-pulled-right mr-3"
-                        data-icon="{{analytics.getTrends station.readings 'pressure'}}" width="50" height="50"></span>
-                    Min: {{analytics.getMinValue station.readings 'pressure'}}<br>
+                        data-icon="{{getTrends readings 'pressure'}}" width="50" height="50"></span>
+                    Min: {{getMinValue readings 'pressure'}}<br>
 
                 </div>
             </div>
