@@ -8,6 +8,7 @@ export const dashboardController = {
   async index(request, response) {
     const loggedInUser = await accountsController.getLoggedInUserId(request);
     const stations = await stationStore.getStationsByUserId(loggedInUser._id);
+    alphabetiseStations(stations);
 
     for (const station of stations) {
       const latestReading = stationAnalytics.getLatestReading(station);
@@ -44,3 +45,18 @@ export const dashboardController = {
   },
 
 };
+
+function alphabetiseStations (stations) { 
+  stations.sort((a, b) => {
+  const nameA = a.name.toLowerCase();
+  const nameB = b.name.toLowerCase();
+
+  if (nameA < nameB) {
+    return -1; // a should come before b in the sorted order
+  }
+  if (nameA > nameB) {
+    return 1; // a should come after b in the sorted order
+  }
+  return 0; // names are equal, maintain their relative order
+});
+}
