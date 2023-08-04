@@ -51,24 +51,9 @@ export const accountsController = {
     return await userStore.getUserByEmail(userEmail);
   },
 
-  async getLoggedInUserId(request) {
+  async getLoggedInUserById(request) {
     const userId = request.cookies.userId;
     return await userStore.getUserById(userId);
   },
-
-  async updateProfile(request, response) {
-    const user = await userStore.getUserById(request.params.id);
-    const updatedUser = {
-      firstName: request.body.firstName,
-      lastName: request.body.lastName,
-      email: request.body.email,
-      password: request.body.password,
-    };
-    
-    console.log("Updating user details");
-    await userStore.updateUser(user, updatedUser);
-    response.redirect("/profile/" + user._id);
-    },
-
  
 };

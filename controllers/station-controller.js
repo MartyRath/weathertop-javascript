@@ -11,6 +11,7 @@ export const stationController = {
       station.latestReading = latestReading;
     
     const viewData = {
+      title: station.name + " station",
       station: station,
       name: station.name,
       latitude: station.latitude,
@@ -18,8 +19,10 @@ export const stationController = {
       readings: station.readings,
       latestReading: latestReading,
     };
-    response.render("station-view", viewData);
+    
     console.log("station rendering")
+    response.render("station-view", viewData);
+    
   },
 
   async addReading(request, response) {

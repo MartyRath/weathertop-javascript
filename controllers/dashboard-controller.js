@@ -6,7 +6,7 @@ import { readingStore } from "../models/reading-store.js";
 
 export const dashboardController = {
   async index(request, response) {
-    const loggedInUser = await accountsController.getLoggedInUserId(request);
+    const loggedInUser = await accountsController.getLoggedInUserById(request);
     const stations = await stationStore.getStationsByUserId(loggedInUser._id);
     alphabetiseStations(stations);
 
@@ -39,7 +39,7 @@ export const dashboardController = {
 
   async deleteStation(request, response) {
     const stationId = request.params.id;
-    console.log(`Deleting Station called`);
+    console.log(`deleting station`);
     await stationStore.deleteStationById(stationId);
     response.redirect("/dashboard");
   },

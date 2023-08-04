@@ -25,8 +25,7 @@ router.get("/station/:stationid/deletereading/:readingid", stationController.del
 
 router.get("/about", aboutController.index);
 router.get("/profile", profileController.index);
-router.get("/profile/:id", profileController.showProfile);
-router.post("/updateProfile/:id", accountsController.updateProfile);
+router.post("/updateProfile/:id", profileController.updateProfile);
 
 router.get("/station/:stationid/editreading/:readingid", readingController.index);
 router.post("/station/:stationid/updatereading/:readingid", readingController.update);

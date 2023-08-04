@@ -3,7 +3,7 @@ import { accountsController } from "./accounts-controller.js";
 
 export const profileController = {
     async index(request, response) {
-    const loggedInUser = await accountsController.getLoggedInUserId(request);
+    const loggedInUser = await accountsController.getLoggedInUserById(request);
       const viewData = {
         title: "Profile",
         user: loggedInUser,
@@ -12,12 +12,19 @@ export const profileController = {
       response.render("profile-view", viewData);
     },
 
-
-    async showProfile(request, response) {
-        const userId = request.params.id;
-        const user = await userStore.getUserById(userId);
-        response.render("profile-view", {user});
+    async updateProfile(request, response) {
+      const user = await userStore.getUserById(request.params.id);
+      const updatedUser = {
+        firstName: request.body.firstName,
+        lastName: request.body.lastName,
+        email: request.body.email,
+        password: request.body.password,
+      };
+      
+      console.log("Updating user details");
+      await userStore.updateUser(user, updatedUser);
+      response.redirect("/profile/");
       },
-      
-      
+    
+
 }
