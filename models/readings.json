@@ -48,23 +48,13 @@
       "stationid": "9190945b-c05e-4a65-a49e-e1241cea9b89"
     },
     {
-      "date": "16/7/2023, 13:09:57",
-      "code": 2,
-      "temperature": 2,
-      "windSpeed": 2,
-      "windDirection": 2,
-      "pressure": 2,
-      "_id": "8f5ff4a2-a17b-49de-8e00-ed8c0fd28913",
-      "stationid": "9190945b-c05e-4a65-a49e-e1241cea9b89"
-    },
-    {
-      "date": "2/8/2023, 13:28:27",
-      "code": 100,
-      "temperature": 2,
-      "windSpeed": 2,
-      "windDirection": 370,
-      "pressure": 2,
-      "_id": "6cdba1c5-ac11-4110-bd04-af2e55bef159",
+      "date": "5/8/2023, 14:53:23",
+      "code": 21,
+      "temperature": 0,
+      "windSpeed": 0,
+      "windDirection": 0,
+      "pressure": 0,
+      "_id": "205c836a-66a1-4dcd-bd1a-6334a89a779f",
       "stationid": "9190945b-c05e-4a65-a49e-e1241cea9b89"
     }
   ]
