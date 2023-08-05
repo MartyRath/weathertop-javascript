@@ -1,5 +1,4 @@
 import { readingStore } from "../models/reading-store.js";
-import Handlebars from 'handlebars';
 
 export const stationAnalytics = {
     getLatestReading(station) {
@@ -52,6 +51,4 @@ export const stationAnalytics = {
     },
 
 };
-
-Handlebars.registerHelper(stationAnalytics);
 

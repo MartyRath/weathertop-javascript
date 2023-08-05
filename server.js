@@ -4,6 +4,8 @@ import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import { engine } from "express-handlebars";
 import { router } from "./routes.js";
+import "./utils/handlebars-helpers.js";  //allows global use of helpers
+
 
 const app = express();
 app.use(cookieParser());

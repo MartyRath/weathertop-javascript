@@ -1,10 +1,6 @@
-import { stationAnalytics } from "./station-analytics";
-import { stationConversions } from "./station-conversions";
+import { stationConversions } from "./station-conversions.js";
+import { stationAnalytics } from "./station-analytics.js";
 import Handlebars from 'handlebars';
 
-export const handlebarsHelpers = { 
-    registerHelpers () {
-        Handlebars.registerHelper(stationAnalytics);
-        Handlebars.registerHelper(stationConversions);
-    },
-};
+Handlebars.registerHelper(stationAnalytics);
+Handlebars.registerHelper(stationConversions);

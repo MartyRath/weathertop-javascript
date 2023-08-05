@@ -1,5 +1,4 @@
 import { stationAnalytics } from "../utils/station-analytics.js";
-import Handlebars from 'handlebars';
 
 export const stationConversions = {
       convertTemperatureCToF(temperature) {
@@ -117,5 +116,3 @@ export const stationConversions = {
       },
 
 };
-
-Handlebars.registerHelper(stationConversions);
