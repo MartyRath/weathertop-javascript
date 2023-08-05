@@ -1,16 +1,25 @@
 {{> welcome-menu active="login"}}
 
-<section class="section">
-  <h1 class="title">Log in</h1>
-  <form action="/authenticate" method="POST">
-    <div class="field">
-      <label class="label">Email</label> <input class="input" type="text" placeholder="Enter email" name="email">
+<section class="content box">
+    <div class="columns">
+        <div class="column is-half">
+            <form action="/authenticate" method="POST">
+                <h3 class="subtitle">Log-in</h3>
+                <div class="field">
+                    <label class="label">Email</label>
+                    <input class="input" type="email" placeholder="Email" name="email">
+                </div>
+                <div class="field">
+                    <label class="label">Password</label>
+                    <input class="input" type="password" name="password">
+                </div>
+                <button class="button is-link is-info">Login</button>
+            </form>
+        </div>
+        <div class="column is-half">
+            <figure class="image is-square">
+                <img src="/images/login-clouds.png" alt="different colour clouds animation">
+            </figure>
+        </div>
     </div>
-    <div class="field">
-      <label class="label">Password</label> <input class="input" type="password" placeholder="Enter Password" name="password">
-    </div>
-    <div class="field is-grouped">
-      <button class="button is-link">Submit</button>
-    </div>
-  </form>
 </section>

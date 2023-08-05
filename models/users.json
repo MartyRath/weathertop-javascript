@@ -14,6 +14,20 @@
       "email": "marge@simpson.com",
       "password": "secret",
       "_id": "05cb8d8c-d592-4c72-96a0-47c28fcffbad"
+    },
+    {
+      "firstname": "jack",
+      "lastname": "black",
+      "email": "jack@black.com",
+      "password": "secret",
+      "_id": "78a63f23-ba93-458d-9d55-52f1d76f65ec"
+    },
+    {
+      "firstname": "Jim",
+      "lastname": "bim",
+      "email": "jim@bim",
+      "password": "secret",
+      "_id": "4a6ce071-fdbe-4bf6-896d-5cc51067da65"
     }
   ]
 }

@@ -1,12 +1,6 @@
 import { userStore } from "../models/user-store.js";
 
 export const accountsController = {
-  index(request, response) {
-    const viewData = {
-      title: "Login or Signup",
-    };
-    response.render("index", viewData);
-  },
 
   login(request, response) {
     const viewData = {
@@ -31,7 +25,7 @@ export const accountsController = {
     const user = request.body;
     await userStore.addUser(user);
     console.log(`registering ${user.email}`);
-    response.redirect("/");
+    response.redirect("/dashboard");
   },
 
   async authenticate(request, response) {
