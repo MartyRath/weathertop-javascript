@@ -42,6 +42,16 @@ export const dashboardController = {
     response.redirect("/dashboard");
   },
 
+  async addreport(request, response) {
+    console.log("rendering new report");
+    const report = {};
+    const viewData = {
+      title: "Weather Report",
+      reading : report
+    };
+    response.render("dashboard", viewData);
+  },
+
 };
 
 function alphabetiseStations (stations) { 
