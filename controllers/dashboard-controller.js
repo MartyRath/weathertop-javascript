@@ -3,10 +3,6 @@ import { accountsController} from "./accounts-controller.js";
 import { stationAnalytics } from "../utils/station-analytics.js";
 import axios from "axios";
 
-const apiKey = "f44741dd33c15a13279d5477ac2799f4";
-const oneCallRequest = `https://api.openweathermap.org/data/2.5/onecall?lat=52.160858&lon=-7.152420&units=metric&appid=${apiKey}`
-
-
 export const dashboardController = {
   async index(request, response) {
     const loggedInUser = await accountsController.getLoggedInUserById(request);
@@ -52,8 +48,9 @@ export const dashboardController = {
     let report = {};
     const lat = request.body.lat;
     const lng = request.body.lng;
-    const requestUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&units=metric&appid=${apiKey}`
-    const result = await axios.get(oneCallRequest);
+    const apiKey = "f44741dd33c15a13279d5477ac2799f4";
+    const requestUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lng}&units=metric&appid=${apiKey}`
+    const result = await axios.get(requestUrl);
     if (result.status == 200) {
       const reading = result.data.current;
       report.code = reading.weather[0].id;
@@ -61,14 +58,23 @@ export const dashboardController = {
       report.windSpeed = reading.wind_speed;
       report.pressure = reading.pressure;
       report.windDirection = reading.wind_deg;
+
+      report.tempTrend = [];
+      report.trendLabels = [];
+      const trends = result.data.daily;
+      for (let i=0; i<trends.length; i++) {
+        report.tempTrend.push(trends[i].temp.day);
+        const date = new Date(trends[i].dt * 1000);
+        report.trendLabels.push(`${date.getDate()}/${date.getMonth()}/${date.getFullYear()}` );
+      }
     }
+    console.log(report);
     const viewData = {
       title: "Weather Report",
       reading: report
     };
     response.render("dashboard-view", viewData);
   }
-
 };
 
 function alphabetiseStations (stations) { 
