@@ -30,4 +30,4 @@ router.post("/updateProfile/:id", profileController.updateProfile);
 router.get("/station/:stationid/editreading/:readingid", readingController.index);
 router.post("/station/:stationid/updatereading/:readingid", readingController.update);
 
-router.post("/dashboard/addreport", dashboardController.addreport);
+router.get("/station/:stationid/autoGenerateReport", stationController.autoGenerateReading);
