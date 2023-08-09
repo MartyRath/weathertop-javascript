@@ -46,4 +46,8 @@ export const userStore = {
     user.password = updatedUser.password;
     await db.write();
   },
+
+  checkPassword(user, password) {
+    return user.password === password;
+  }
 };

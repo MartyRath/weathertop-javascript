@@ -1,6 +1,11 @@
 import { stationStore } from "../models/station-store.js";
 import { accountsController} from "./accounts-controller.js";
 import { stationAnalytics } from "../utils/station-analytics.js";
+import axios from "axios";
+
+const apiKey = "f44741dd33c15a13279d5477ac2799f4";
+const oneCallRequest = `https://api.openweathermap.org/data/2.5/onecall?lat=52.160858&lon=-7.152420&units=metric&appid=${apiKey}`
+
 
 export const dashboardController = {
   async index(request, response) {
@@ -44,13 +49,25 @@ export const dashboardController = {
 
   async addreport(request, response) {
     console.log("rendering new report");
-    const report = {};
+    let report = {};
+    const lat = request.body.lat;
+    const lng = request.body.lng;
+    const requestUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&units=metric&appid=${apiKey}`
+    const result = await axios.get(oneCallRequest);
+    if (result.status == 200) {
+      const reading = result.data.current;
+      report.code = reading.weather[0].id;
+      report.temperature = reading.temp;
+      report.windSpeed = reading.wind_speed;
+      report.pressure = reading.pressure;
+      report.windDirection = reading.wind_deg;
+    }
     const viewData = {
       title: "Weather Report",
-      reading : report
+      reading: report
     };
-    response.render("dashboard", viewData);
-  },
+    response.render("dashboard-view", viewData);
+  }
 
 };
 
@@ -60,11 +77,11 @@ function alphabetiseStations (stations) {
   const nameB = b.name.toLowerCase();
 
   if (nameA < nameB) {
-    return -1; // a should come before b in the sorted order
+    return -1;
   }
   if (nameA > nameB) {
-    return 1; // a should come after b in the sorted order
+    return 1;
   }
-  return 0; // names are equal, maintain their relative order
+  return 0;
 });
 }

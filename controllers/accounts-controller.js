@@ -1,16 +1,24 @@
 import { userStore } from "../models/user-store.js";
 
 export const accountsController = {
+  index(request, response) {
+    const viewData = {
+      title: "Login or Signup",
+    };
+    response.render("index", viewData);
+  },
 
   login(request, response) {
     const viewData = {
       title: "Login to the Service",
     };
+    console.log("rendering login");
     response.render("login-view", viewData);
   },
 
   logout(request, response) {
     response.cookie("station", "");
+    console.log("signing out");
     response.redirect("/");
   },
 
@@ -18,6 +26,7 @@ export const accountsController = {
     const viewData = {
       title: "Login to the Service",
     };
+    console.log("rendering signup");
     response.render("signup-view", viewData);
   },
 
@@ -30,7 +39,9 @@ export const accountsController = {
 
   async authenticate(request, response) {
     const user = await userStore.getUserByEmail(request.body.email);
-    if (user) {
+    console.log(request.body.password);
+    if (user && userStore.checkPassword(user, request.body.password)) {
+      console.log("Authentication successful");
       response.cookie("station", user.email);
       response.cookie("userId", user._id);
       console.log(`logging in ${user.email}`);

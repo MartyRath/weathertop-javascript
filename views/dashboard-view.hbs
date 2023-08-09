@@ -7,6 +7,8 @@
 
 
 
+
+
 <section class="box has-text-centered">
   <h3 class="is-3 title">
     Weather Readings
@@ -15,11 +17,53 @@
     {{> reading-table}}
   </div>
   <section class="section">
+    <h2 class="subtitle">Enter location for reading</h2>
     <form action="/dashboard/addreport" method="POST">
+      <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field">
+            <input class="input" type="text" placeholder="52.160858" name="lat">
+          </div>
+          <div class="field">
+            <input class="input" type="text" placeholder="-7.152420" name="lng">
+          </div>
+        </div>
+      </div>
       <div class="field is-grouped">
         <button class="button is-link">Add Reading</button>
       </div>
     </form>
   </section>
 </section>
+
+
+  <div class="box" id="chart"></div>
+<script>
+  const data = {
+    labels: [
+      {{#each reading.trendLabels}}
+        "{{this}}",
+      {{/each}}
+    ],
+    datasets: [
+      {
+        name: "Temperature", type: "line",
+        values: [
+          {{#each reading.tempTrend}}
+            {{this}},
+          {{/each}}
+        ]
+      }
+    ]
+  }
+
+  const chart = new frappe.Chart("#chart", {
+    title: "Temperature Trend",
+    data: data,
+    type: 'line',
+    height: 250,
+  })
+</script>
+
+
 
