@@ -2,6 +2,7 @@ import { stationStore } from "../models/station-store.js";
 import { readingStore } from "../models/reading-store.js";
 import { stationAnalytics } from "../utils/station-analytics.js";
 import axios from "axios";
+import 'dotenv/config';
 
 export const stationController = {
   async index(request, response) {
@@ -54,8 +55,7 @@ export const stationController = {
     let report = {};
     const lat = station.latitude;
     const lng = station.longitude;
-    const apiKey = "f44741dd33c15a13279d5477ac2799f4";
-    const requestUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lng}&units=metric&appid=${apiKey}`
+    const requestUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lng}&units=metric&appid=${process.env.API_KEY}`
     const result = await axios.get(requestUrl);
     if (result.status == 200) {
       const reading = result.data.current;
