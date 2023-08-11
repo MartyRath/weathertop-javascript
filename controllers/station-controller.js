@@ -6,11 +6,28 @@ import 'dotenv/config';
 
 export const stationController = {
   async index(request, response) {
-    const station = await 
-    stationStore.getStationById(request.params.id);
+    const station = await
+      stationStore.getStationById(request.params.id);
     const latestReading = stationAnalytics.getLatestReading(station);
-      station.latestReading = latestReading;
-    
+    station.latestReading = latestReading;
+
+    let report = {};
+    const lat = station.latitude;
+    const lng = station.longitude;
+    const requestUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lng}&units=metric&appid=${process.env.API_KEY}`
+    const result = await axios.get(requestUrl);
+    if (result.status == 200) {
+      const reading = result.data.current;
+      report.tempTrend = [];
+      report.trendLabels = [];
+      const trends = result.data.daily;
+      for (let i = 0; i < trends.length; i++) {
+        report.tempTrend.push(trends[i].temp.day);
+        const date = new Date(trends[i].dt * 1000);
+        report.trendLabels.push(`${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`);
+      }
+    }
+
     const viewData = {
       title: station.name + " station",
       station: station,
@@ -19,11 +36,11 @@ export const stationController = {
       longitude: station.longitude,
       readings: station.readings,
       latestReading: latestReading,
+      report,
     };
-    
+
     console.log("station rendering")
     response.render("station-view", viewData);
-    
   },
 
   async addReading(request, response) {
@@ -42,6 +59,14 @@ export const stationController = {
     console.log(`adding new reading`);
     await readingStore.addReading(station._id, newReading);
     response.redirect("/station/" + station._id);
+  },
+
+  async deleteReading(request, response) {
+    const stationId = request.params.stationid;
+    const readingId = request.params.readingid;
+    console.log(`Deleting Reading ${readingId} from station ${stationId}`);
+    await readingStore.deleteReading(readingId);
+    response.redirect("/station/" + stationId);
   },
 
   async autoGenerateReading(request, response) {
@@ -68,14 +93,13 @@ export const stationController = {
       report.tempTrend = [];
       report.trendLabels = [];
       const trends = result.data.daily;
-      for (let i=0; i<trends.length; i++) {
+      for (let i = 0; i < trends.length; i++) {
         report.tempTrend.push(trends[i].temp.day);
         const date = new Date(trends[i].dt * 1000);
-        report.trendLabels.push(`${date.getDate()}/${date.getMonth()}/${date.getFullYear()}` );
+        report.trendLabels.push(`${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`);
       }
     }
-    console.log(report);
-    
+
     const newReading = {
       date: date.toLocaleString(),
       code: report.code,
@@ -84,16 +108,10 @@ export const stationController = {
       windDirection: report.windDirection,
       pressure: report.pressure,
     };
-    
+
     await readingStore.addReading(station._id, newReading);
     response.redirect("/station/" + station._id);
   },
 
-  async deleteReading(request, response) {
-    const stationId = request.params.stationid;
-    const readingId = request.params.readingid;
-    console.log(`Deleting Reading ${readingId} from station ${stationId}`);
-    await readingStore.deleteReading(readingId);
-    response.redirect("/station/" + stationId);
-  },
+
 };

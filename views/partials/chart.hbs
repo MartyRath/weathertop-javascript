@@ -2,7 +2,7 @@
 <script>
   const data = {
   labels: [
-    {{#each reading.trendLabels}}
+    {{#each report.trendLabels}}
       "{{this}}",
     {{/each}}
   ],
@@ -10,7 +10,7 @@
     {
       name: "Temperature", type: "line",
       values: [
-        {{#each reading.tempTrend}}
+        {{#each report.tempTrend}}
           {{this}},
         {{/each}}
       ]
