@@ -16,6 +16,7 @@ export const dashboardController = {
     const viewData = {
       title: "WeatherTop",
       stations,
+      
     };
     
     response.render("dashboard-view", viewData);
