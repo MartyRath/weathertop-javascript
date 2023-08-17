@@ -4,6 +4,7 @@ import { stationAnalytics } from "../utils/station-analytics.js";
 
 export const dashboardController = {
   async index(request, response) {
+    try {
     const loggedInUser = await accountsController.getLoggedInUserById(request);
     const stations = await stationStore.getStationsByUserId(loggedInUser._id);
     alphabetiseStations(stations);
@@ -16,11 +17,16 @@ export const dashboardController = {
     const viewData = {
       title: "WeatherTop",
       stations,
-      
     };
     
-    response.render("dashboard-view", viewData);
-    console.log("dashboard rendering");
+      response.render("dashboard-view", viewData);
+      console.log("dashboard rendering");
+    }
+    catch (error) {
+      console.error("Something went wrong", error);
+      response.render("error-view");
+    }
+    
   },
 
   async addStation(request, response) {

@@ -2,10 +2,16 @@ import { userStore } from "../models/user-store.js";
 
 export const accountsController = {
   index(request, response) {
+    try {
     const viewData = {
       title: "Login or Signup",
     };
     response.render("index", viewData);
+  }
+  catch (error) {
+    console.error("Something went wrong", error);
+    response.render("error-view");
+  }
   },
 
   login(request, response) {

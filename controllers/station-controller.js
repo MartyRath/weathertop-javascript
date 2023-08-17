@@ -6,6 +6,7 @@ import 'dotenv/config';
 
 export const stationController = {
   async index(request, response) {
+    try{
     const station = await
       stationStore.getStationById(request.params.id);
     const latestReading = stationAnalytics.getLatestReading(station);
@@ -41,6 +42,11 @@ export const stationController = {
 
     console.log("station rendering")
     response.render("station-view", viewData);
+  }
+  catch (error) {
+    console.error("Something went wrong", error);
+    response.render("error-view");
+  }
   },
 
   async addReading(request, response) {

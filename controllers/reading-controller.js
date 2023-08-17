@@ -3,6 +3,7 @@ import { readingStore } from "../models/reading-store.js";
 
 export const readingController = {
   async index(request, response) {
+    try {
     const stationId = request.params.stationid;
     const readingId = request.params.readingid;
     console.log(`Editing Reading ${readingId} from Station ${stationId}`);
@@ -12,6 +13,11 @@ export const readingController = {
       reading: await readingStore.getReadingById(readingId),
     };
     response.render("edit-view", viewData);
+  }
+  catch (error) {
+    console.error("Something went wrong", error);
+    response.render("error-view");
+  }
   },
 
   async update(request, response) {
