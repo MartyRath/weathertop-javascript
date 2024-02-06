@@ -1,6 +1,22 @@
 # WeatherTop
 
-A weather monitoring web application.
+An Express.js web application for weather monitoring, designed for the Glitch development environment. Implemented features such as user authentication, user dashboards, weather trends, and integration with OpenWeather API.
+
+Frontend Development:
+
+    JavaScript
+    React
+    Handlebars
+    HTML
+    CSS
+    Bootstrap
+    Bulma
+
+Backend Development and Database Management:
+
+    Node.js
+    Lowdb (JSON)
+
 
 This is an Express.js project, designed to work well with the Glitch development environment. It includes basic express setup, handlebars templating, routing, + lowdb database.
 
