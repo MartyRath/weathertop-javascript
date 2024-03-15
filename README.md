@@ -5,7 +5,6 @@ An Express.js web application for weather monitoring, designed for the Glitch de
 Frontend Development:
 
     JavaScript
-    React
     Handlebars
     HTML
     CSS
@@ -14,7 +13,7 @@ Frontend Development:
 
 Backend Development and Database Management:
 
-    Node.js
+    Node.js (Express.js)
     Lowdb (JSON)
 
 
